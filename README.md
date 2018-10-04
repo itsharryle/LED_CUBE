@@ -4,4 +4,4 @@
 
 Making-of on Youtube: https://www.youtube.com/watch?v=T5Aq7cRc-mU
 
-![8x8x8 LED cube sample](photo.png)
+![8x8x8 LED cube sample](photo.jpg)
