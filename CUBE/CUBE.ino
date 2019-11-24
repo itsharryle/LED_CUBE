@@ -54,6 +54,10 @@ uint16_t timer;
 
 uint64_t randomTimer;
 
+bool autoRotate = true;
+uint64_t lastEffectChange = 0;
+uint32_t effectDuration = 5000;
+
 bool loading;
 
 void setup() {
@@ -75,10 +79,11 @@ void setup() {
 }
 
 void loop() {
-
+  uint64_t currentTime = millis();
   randomTimer++;
 
-  if (digitalRead(BUTTON_PIN) == LOW) {
+  if (digitalRead(BUTTON_PIN) == LOW || (currentTime - lastEffectChange >= effectDuration && autoRotate)) {
+    lastEffectChange = millis();
     clearCube();
     loading = true;
     timer = 0;
