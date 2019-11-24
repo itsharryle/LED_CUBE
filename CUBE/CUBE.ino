@@ -82,7 +82,7 @@ void loop() {
   uint64_t currentTime = millis();
   randomTimer++;
 
-  if (digitalRead(BUTTON_PIN) == LOW || (currentTime - lastEffectChange >= effectDuration && autoRotate) {
+  if (digitalRead(BUTTON_PIN) == LOW || (currentTime - lastEffectChange >= effectDuration && autoRotate)) {
     lastEffectChange = millis();
     clearCube();
     loading = true;
