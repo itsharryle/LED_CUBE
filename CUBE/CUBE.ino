@@ -107,7 +107,7 @@ void loop() {
     case WOOP_WOOP: woopWoop(); break;
     case CUBE_JUMP: cubeJump(); break;
     case GLOW: glow(); break;
-    case TEXT: text("0123456789", 10); break;
+    case TEXT: text((*char)"0123456789", 10); break;
     case LIT: lit(); break;
 
     default: rain();
