@@ -82,7 +82,7 @@ void loop() {
   uint64_t currentTime = millis();
   randomTimer++;
 
-  if (digitalRead(BUTTON_PIN) == LOW || (currentTime - lastEffectChange >= effectDuration && autoRotate)) {
+  if ((digitalRead(BUTTON_PIN) == LOW && currentTime - lastEffectChange > 500) || (currentTime - lastEffectChange >= effectDuration && autoRotate)) {
     lastEffectChange = millis();
     clearCube();
     loading = true;
@@ -95,11 +95,12 @@ void loop() {
     randomTimer = 0;
     digitalWrite(RED_LED, HIGH);
     digitalWrite(GREEN_LED, LOW);
-    delay(500);
+  }
+    if(currentTime - lastEffectChange > 500){
     digitalWrite(RED_LED, LOW);
     digitalWrite(GREEN_LED, HIGH);
   }
-
+  
   switch (currentEffect) {
     case RAIN: rain(); break;
     case PLANE_BOING: planeBoing(); break;
